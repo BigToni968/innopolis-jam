@@ -35,8 +35,6 @@ public partial class Spawner : Node
 	private void BossDead()
 	{
 		_ref.Stats.OnDeadEv -= BossDead;
-		_ref?.QueueFree();
-		_ref = null;
 		_spawn = true;
 	}
 
@@ -46,7 +44,8 @@ public partial class Spawner : Node
 		{
 			yield return Co.WaitUntil(() => _spawn);
 			yield return Co.Wait(CountRespawn < 1 ? data.DurationFirtsSpawn : data.DurationbetweenRespawned);
-
+			_ref?.QueueFree();
+			_ref = null;
 			_ref = data.BookWalkerData.Prefab.Instantiate<BookWalker>();
 			_ref.GlobalPosition = spawnBWPos.GlobalPosition;
 			GetTree().CurrentScene.AddChild(_ref);

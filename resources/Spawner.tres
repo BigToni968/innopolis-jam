@@ -7,6 +7,5 @@
 script = ExtResource("1_sfwhy")
 BookWalkerData = ExtResource("1_p45a3")
 CountRespawnInDead = 7
-DurationbetweenRespawned = 2.0
 ProcentToUp = 15.0
 metadata/_custom_type_script = "uid://bp8358ghrpt7o"

@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dijd83a5v35dk" path="res://scenes/player/head/head.gd" id="1_p0fbf"]
 [ext_resource type="Script" uid="uid://r0skgrqmfy0k" path="res://scenes/player/head/item_selector.gd" id="2_gofkc"]
-[ext_resource type="PackedScene" uid="uid://h0ycb7pnmd00" path="res://assets/weapon/Ink_Pen.glb" id="2_n5w0a"]
-[ext_resource type="PackedScene" uid="uid://b5kku0drveigv" path="res://assets/weapon/Telescope.glb" id="3_gofkc"]
+[ext_resource type="PackedScene" uid="uid://32vwlc5x57ex" path="res://resources/ink_pen.tscn" id="3_3frkq"]
+[ext_resource type="PackedScene" uid="uid://lbcgn5gb1xhb" path="res://scenes/player/head/telescope_(2).tscn" id="4_3frkq"]
 [ext_resource type="PackedScene" uid="uid://cu7e27qoj6y28" path="res://assets/weapon/ubrella_sword_fix.tscn" id="6_um6c2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xwa4"]
+albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yhr7m"]
 size = Vector3(0.2, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtme2"]
+albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xq1xr"]
 size = Vector3(0.3, 0.3, 1)
@@ -113,7 +119,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Camera3D/Hand1/Items/Ink_Pen:position")
+tracks/8/path = NodePath("Camera3D/Hand1/Items/Ink_PenPoint:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -125,7 +131,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Camera3D/Hand1/Items/Ink_Pen:rotation")
+tracks/9/path = NodePath("Camera3D/Hand1/Items/Ink_PenPoint:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -137,7 +143,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Camera3D/Hand1/Items/Telescope:position")
+tracks/10/path = NodePath("Camera3D/Hand1/Items/TelescopePoint:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -149,7 +155,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Camera3D/Hand1/Items/Telescope:rotation")
+tracks/11/path = NodePath("Camera3D/Hand1/Items/TelescopePoint:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -443,7 +449,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Hand1/Items/Ink_Pen:position")
+tracks/2/path = NodePath("Camera3D/Hand1/Items/Ink_PenPoint:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -455,7 +461,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D/Hand1/Items/Ink_Pen:rotation")
+tracks/3/path = NodePath("Camera3D/Hand1/Items/Ink_PenPoint:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -525,7 +531,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Hand1/Items/Telescope:position")
+tracks/4/path = NodePath("Camera3D/Hand1/Items/TelescopePoint:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -537,7 +543,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Hand1/Items/Telescope:rotation")
+tracks/5/path = NodePath("Camera3D/Hand1/Items/TelescopePoint:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -615,7 +621,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D/Hand1/Items/Telescope:position")
+tracks/4/path = NodePath("Camera3D/Hand1/Items/TelescopePoint:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -627,7 +633,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Hand1/Items/Telescope:rotation")
+tracks/5/path = NodePath("Camera3D/Hand1/Items/TelescopePoint:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -862,26 +868,32 @@ metadata/_custom_type_script = "uid://dijd83a5v35dk"
 current = true
 
 [node name="Hand1" type="MeshInstance3D" parent="Camera3D" unique_id=407209750]
-transform = Transform3D(0.3983761, 0.89500475, 0.2006553, -0.85668695, 0.44122875, -0.2672158, -0.32769412, -0.065446354, 0.94251484, 0.38936812, -0.3480032, -0.13301289)
+transform = Transform3D(0.39837602, 0.8950047, 0.2006553, -0.8566867, 0.44122872, -0.2672158, -0.32769406, -0.06544635, 0.94251484, 0.38936812, -0.3480032, -0.13301289)
 layers = 2
+material_override = SubResource("StandardMaterial3D_3xwa4")
 mesh = SubResource("BoxMesh_yhr7m")
 
 [node name="Items" type="Node3D" parent="Camera3D/Hand1" unique_id=2138861366 node_paths=PackedStringArray("ink_pen", "telescope", "umbrella")]
 script = ExtResource("2_gofkc")
-ink_pen = NodePath("Ink_Pen")
-telescope = NodePath("Telescope")
+ink_pen = NodePath("Ink_PenPoint")
+telescope = NodePath("TelescopePoint")
 umbrella = NodePath("UbrellaSword_FIX2")
 metadata/_custom_type_script = "uid://r0skgrqmfy0k"
 
-[node name="Ink_Pen" parent="Camera3D/Hand1/Items" unique_id=1202783389 instance=ExtResource("2_n5w0a")]
+[node name="Ink_PenPoint" type="Node3D" parent="Camera3D/Hand1/Items" unique_id=1202783389]
 process_mode = 4
-transform = Transform3D(-0.56728935, -0.57946336, -0.5851536, 0.65477616, -0.7483169, 0.10625321, -0.49945, -0.32286838, 0.8039313, 0.16824067, 0.15423882, -0.2846952)
+transform = Transform3D(-0.56728935, -0.57946336, -0.5851536, 0.6547761, -0.7483169, 0.10625321, -0.49944997, -0.32286838, 0.8039313, 0.16824067, 0.15423882, -0.2846952)
 visible = false
 
-[node name="Telescope" parent="Camera3D/Hand1/Items" unique_id=2141104892 instance=ExtResource("3_gofkc")]
+[node name="Ink_Pen" parent="Camera3D/Hand1/Items/Ink_PenPoint" unique_id=456305969 instance=ExtResource("3_3frkq")]
+
+[node name="TelescopePoint" type="Node3D" parent="Camera3D/Hand1/Items" unique_id=2141104892]
 process_mode = 4
 transform = Transform3D(0.19422708, -0.9168524, 0.34879413, -0.05468301, 0.34489283, 0.93704784, -0.9794313, -0.20107318, 0.016851278, -0.12698722, 0.038104087, -0.7862737)
 visible = false
+
+[node name="Telescope (2)" parent="Camera3D/Hand1/Items/TelescopePoint" unique_id=630042013 instance=ExtResource("4_3frkq")]
+transform = Transform3D(1, -8.187895e-16, 1.4901163e-08, 0, 1.0000002, 5.4948025e-08, -1.4901161e-08, -5.4948032e-08, 1.0000001, 0, 0, -5.9604645e-08)
 
 [node name="UbrellaSword_FIX2" parent="Camera3D/Hand1/Items" unique_id=1348914177 instance=ExtResource("6_um6c2")]
 process_mode = 4
@@ -891,6 +903,7 @@ visible = false
 [node name="Hand2" type="MeshInstance3D" parent="Camera3D" unique_id=1162761451]
 transform = Transform3D(0.91366327, -0.37427828, -0.15853965, 0.3176495, 0.9008167, -0.29602093, 0.2536093, 0.22010355, 0.9419322, -0.12975842, -0.31717527, -0.6028769)
 layers = 2
+material_override = SubResource("StandardMaterial3D_qtme2")
 mesh = SubResource("BoxMesh_yhr7m")
 
 [node name="Area3D" type="Area3D" parent="Camera3D" unique_id=1665331456]

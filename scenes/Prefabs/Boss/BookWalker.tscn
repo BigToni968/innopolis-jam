@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dw8q6o8jy4mf5" path="res://scripts/Boss/BookWalker.cs" id="1_qbcu3"]
 [ext_resource type="Script" uid="uid://dikp65783mpd6" path="res://scripts/Boss/Stats.cs" id="2_l6b24"]
-[ext_resource type="PackedScene" uid="uid://c57pjttgkj03e" path="res://scenes/Prefabs/Boss/Mesh.tscn" id="3_286ki"]
 [ext_resource type="Resource" uid="uid://b7tnggjifptev" path="res://resources/NPC/BookWalker/BossProgress.tres" id="3_dl1jk"]
 [ext_resource type="Script" uid="uid://ba7cadxv8blvq" path="res://scripts/Boss/Spells/AntiKaiShield.cs" id="4_ogt05"]
+[ext_resource type="PackedScene" uid="uid://c57pjttgkj03e" path="res://scenes/Prefabs/Boss/mesh.tscn" id="4_qqaq4"]
 [ext_resource type="Resource" uid="uid://cws582dmioa4f" path="res://resources/NPC/BookWalker/Spells/AntiKaiShield.tres" id="6_lycdd"]
 [ext_resource type="Script" uid="uid://b43xiqp25sx46" path="res://scripts/Boss/Spells/SpellBerserk.cs" id="7_lycdd"]
 [ext_resource type="Resource" uid="uid://mw438kylsjej" path="res://resources/NPC/BookWalker/Spells/SpellBerserk.tres" id="8_hjmid"]
@@ -78,7 +78,7 @@ path_desired_distance = 0.5
 debug_enabled = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 
-[node name="Mesh" parent="." unique_id=644456192 instance=ExtResource("3_286ki")]
+[node name="Mesh" parent="." unique_id=1307107689 instance=ExtResource("4_qqaq4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4570659, 0)
 
 [node name="MeleeArea3D" type="Area3D" parent="." unique_id=1932273929]

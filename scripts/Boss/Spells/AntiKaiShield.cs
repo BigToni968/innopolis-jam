@@ -37,9 +37,11 @@ public partial class AntiKaiShield : Area3D
 
 	private IEnumerator Delay()
 	{
-		mesh.Visible = true;
+		if (mesh != null)
+			mesh.Visible = true;
 		yield return Co.Delay(lifeTime);
-		mesh.Visible = false;
+		if (mesh != null)
+			mesh.Visible = false;
 		yield return Co.Delay(coolDowm);
 		_delay = null;
 	}
