@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c68x0pjs7p282"]
+
+[ext_resource type="Script" uid="uid://f8gdknxfvw3c" path="res://scripts/Boss/ArchiveTrapProjectile.cs" id="1_4a5p0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ejdoq"]
+resource_local_to_scene = true
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejdoq"]
+transparency = 4
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="ArchiveTrap_Projectile_Area3D" type="Area3D" unique_id=1552177068]
+collision_layer = 0
+script = ExtResource("1_4a5p0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=270704105]
+shape = SubResource("SphereShape3D_ejdoq")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1985632070]
+radius = 1.0
+material = SubResource("StandardMaterial3D_ejdoq")

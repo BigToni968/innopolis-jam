@@ -7,9 +7,9 @@ public partial class Spawner : Node
 	[Export] private SpawnerData data;
 	[Export] private CharacterBody3D playerNode;
 	[Export] private Marker3D spawnBWPos;
+	[Export] public int CountRespawn { get; private set; } = 0;
 	public BookWalker GetBookWalker => _ref;
 	public Stats GetBookWalkerStats => _ref.Stats;
-	public int CountRespawn { get; private set; } = 0;
 
 	private Coroutine _spawnBW;
 	private BookWalker _ref;
@@ -35,8 +35,7 @@ public partial class Spawner : Node
 	private void BossDead()
 	{
 		_ref.Stats.OnDeadEv -= BossDead;
-		if (_ref != null)
-			_ref.QueueFree();
+		_ref?.QueueFree();
 		_ref = null;
 		_spawn = true;
 	}

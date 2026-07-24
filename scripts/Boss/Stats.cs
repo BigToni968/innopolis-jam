@@ -41,12 +41,12 @@ public partial class Stats : Resource
         CurentHealth += addHealt;
         CurentHealth = Math.Clamp(CurentHealth, 0f, MaxHealth);
 
-        if (CurentHealth > oldHealth)
+        if (!IsAlive)
+            OnDeadEv?.Invoke();
+        else if (CurentHealth > oldHealth)
             OnHealEv?.Invoke();
         else if (CurentHealth < oldHealth)
             OnDamageEv?.Invoke();
-        else if (!IsAlive)
-            OnDeadEv?.Invoke();
     }
 
     public void SetSpeed(float speed)

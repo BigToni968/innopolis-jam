@@ -216,12 +216,12 @@ public partial class BookWalker : CharacterBody3D
 		_sm.AddTransition(new Transition(nameof(StateKeys.Knockback), nameof(AnimationKeys.Idle), condition => agent.IsNavigationFinished()));
 
 		//Combat
-		_sm.AddTransitionFromAny(new Transition(null, nameof(StateKeys.PreMeleeAttack), condition => BossProgress.HasOpened(CountRespawn, nameof(StateKeys.PreMeleeAttack)) && _target != null && !_attackFlag && !_coolDown.IsCoolDown(nameof(AnimationKeys.MeleeAttack), storages.attackStorage.GetAttackToName(nameof(AnimationKeys.MeleeAttack)).UseMaxAttack) &&
+		_sm.AddTransitionFromAny(new Transition(null, nameof(StateKeys.PreMeleeAttack), condition => BossProgress.HasOpened(CountRespawn, nameof(AnimationKeys.MeleeAttack)) && _target != null && !_attackFlag && !_coolDown.IsCoolDown(nameof(AnimationKeys.MeleeAttack), storages.attackStorage.GetAttackToName(nameof(AnimationKeys.MeleeAttack)).UseMaxAttack) &&
 		 PlayerInArea(areas[0]) && IsForwardTarget(_target.GlobalPosition)));
 		_sm.AddTransition(new TransitionAfter(nameof(StateKeys.PreMeleeAttack), nameof(AnimationKeys.MeleeAttack), delay: storages.stateStorage.GetStateToName(nameof(StateKeys.PreMeleeAttack)).Duration));
 		_sm.AddTransition(nameof(AnimationKeys.MeleeAttack), nameof(AnimationKeys.Idle), condition => IsFinishAnimation(nameof(AnimationKeys.MeleeAttack)));
 
-		_sm.AddTransitionFromAny(new Transition(null, nameof(StateKeys.PreMeleeAttackAOE), condition => BossProgress.HasOpened(CountRespawn, nameof(StateKeys.PreMeleeAttackAOE)) && _target != null && !_attackFlag && !_coolDown.IsCoolDown(nameof(AnimationKeys.MeleeAttackAOE), storages.attackStorage.GetAttackToName(nameof(AnimationKeys.MeleeAttackAOE)).UseMaxAttack) && PlayerInArea(areas[0])));
+		_sm.AddTransitionFromAny(new Transition(null, nameof(StateKeys.PreMeleeAttackAOE), condition => BossProgress.HasOpened(CountRespawn, nameof(AnimationKeys.MeleeAttackAOE)) && _target != null && !_attackFlag && !_coolDown.IsCoolDown(nameof(AnimationKeys.MeleeAttackAOE), storages.attackStorage.GetAttackToName(nameof(AnimationKeys.MeleeAttackAOE)).UseMaxAttack) && PlayerInArea(areas[0])));
 		_sm.AddTransition(new TransitionAfter(nameof(StateKeys.PreMeleeAttackAOE), nameof(AnimationKeys.MeleeAttackAOE), storages.stateStorage.GetStateToName(nameof(StateKeys.PreMeleeAttackAOE)).Duration));
 		_sm.AddTransition(new TransitionAfter(nameof(AnimationKeys.MeleeAttackAOE), nameof(AnimationKeys.Idle), delay: storages.stateStorage.GetStateToName(nameof(AnimationKeys.MeleeAttackAOE)).Duration));
 
