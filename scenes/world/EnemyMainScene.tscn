@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" path="res://scenes/weapons/world_item.tscn" id="16_d8nqw"]
 [ext_resource type="Resource" path="res://resources/effects/heal_potion_effect.tres" id="17_m9xbp"]
 [ext_resource type="PackedScene" uid="uid://bjrj4o12oi4g6" path="res://scenes/weapons/ink_scythe_world_item.tscn" id="18_bp7cl"]
-[ext_resource type="PackedScene" path="res://scenes/weapons/telescope_world_item.tscn" id="19_g4env"]
+[ext_resource type="PackedScene" uid="uid://b2211eoqnfv02" path="res://scenes/weapons/telescope_world_item.tscn" id="19_g4env"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/umbrella_world_item.tscn" id="20_af3bn"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rd4tg"]
